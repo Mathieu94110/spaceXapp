@@ -1,0 +1,7 @@
+{
+  "name": "space-x-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

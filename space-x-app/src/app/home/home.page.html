@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Home </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true" lines="none">
+    <ion-title class="ion-text-center ion-padding">
+      Space X en image
+    </ion-title>
+  </ion-header>
+  <ng-container *ngIf="historyEvents" class="slides-container">
+    <ion-slides [options]="slideOpts" class="ion-margin-top">
+      <ion-slide *ngFor="let event of historyEvents">
+        <ion-card class="history-events-cards">
+          <ion-card-header>
+            <ion-card-subtitle class="history-subtitle"
+              ><span class="items-key">Le</span>
+              <span class="items-value">
+                Le {{event.event_date_utc}}</span
+              ></ion-card-subtitle
+            >
+            <ion-card-title class="history-title">
+              <span class="items-value"> {{event.title}}</span></ion-card-title
+            >
+          </ion-card-header>
+
+          <ion-card-content class="history-content">
+            <span class="items-value"
+              >{{event.details.length > 100 ? event.details.slice( 0,
+              55).concat(" ...") : event.details }}</span
+            >
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+
+  <ion-header [translucent]="true" lines="none">
+    <ion-title class="ion-text-center ion-padding">
+      Dernier lancement
+    </ion-title>
+  </ion-header>
+  <ng-container *ngIf="latestLaunches" class="latest-launch-container">
+    <ion-card class="cards">
+      <ion-card-header>
+        <ion-card-subtitle
+          ><span class="items-key">N°:</span>
+          <span class="items-value"
+            >{{latestLaunches.flight_number}}</span
+          ></ion-card-subtitle
+        >
+        <ion-card-title
+          ><span class="items-key">Nom:</span>
+          <span class="items-value"
+            >{{latestLaunches.name}}</span
+          ></ion-card-title
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-img
+          [src]="latestLaunches.links.patch.small"
+          class="cards-img"
+        ></ion-img>
+        <span class="items-key">Détails: </span>
+        <span class="items-value"
+          >{{latestLaunches.details.length > 100 ? latestLaunches.details.slice(
+          0, 55).concat(" ...") : latestLaunches.details }}</span
+        >
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>
