@@ -18,7 +18,7 @@
             <ion-card-subtitle class="history-subtitle"
               ><span class="items-key">Le</span>
               <span class="items-value">
-                Le {{event.event_date_utc}}</span
+                {{event.event_date_utc}}</span
               ></ion-card-subtitle
             >
             <ion-card-title class="history-title">
@@ -42,8 +42,11 @@
       Dernier lancement
     </ion-title>
   </ion-header>
-  <ng-container *ngIf="latestLaunches" class="latest-launch-container">
+  <ion-content *ngIf="latestLaunches" class="latest-launch-container">
     <ion-card class="cards">
+       <div class="ion-text-center ion-padding">
+      <img [src]="latestLaunches.links.patch.small" class="ion-cards-img" />
+      </div>
       <ion-card-header>
         <ion-card-subtitle
           ><span class="items-key">N°:</span>
@@ -51,8 +54,7 @@
             >{{latestLaunches.flight_number}}</span
           ></ion-card-subtitle
         >
-        <ion-card-title
-          ><span class="items-key">Nom:</span>
+        <ion-card-title>
           <span class="items-value"
             >{{latestLaunches.name}}</span
           ></ion-card-title
@@ -60,10 +62,6 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-img
-          [src]="latestLaunches.links.patch.small"
-          class="cards-img"
-        ></ion-img>
         <span class="items-key">Détails: </span>
         <span class="items-value"
           >{{latestLaunches.details.length > 100 ? latestLaunches.details.slice(
@@ -71,5 +69,5 @@
         >
       </ion-card-content>
     </ion-card>
-  </ng-container>
+  </ion-content>
 </ion-content>

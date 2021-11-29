@@ -12,13 +12,12 @@ export class HomePage implements OnInit {
   historyEvents: SpaceXApi.IHistoryEventSchema | undefined;
 
   constructor(private homeService: HomeService) {}
+
   ngOnInit() {
     this.homeService.getLatestLaunches().subscribe((data) => {
-      console.log(data);
       this.latestLaunches = data;
     });
     this.homeService.getAllHistoryEvents().subscribe((data) => {
-      console.log(data);
       this.historyEvents = data;
     });
   }
