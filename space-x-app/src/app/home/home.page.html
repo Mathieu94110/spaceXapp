@@ -44,8 +44,8 @@
   </ion-header>
   <ion-content *ngIf="latestLaunches" class="latest-launch-container">
     <ion-card class="cards">
-       <div class="ion-text-center ion-padding">
-      <img [src]="latestLaunches.links.patch.small" class="ion-cards-img" />
+      <div class="ion-text-center ion-padding">
+        <img [src]="latestLaunches.links.patch.small" class="ion-cards-img" />
       </div>
       <ion-card-header>
         <ion-card-subtitle
@@ -70,4 +70,6 @@
       </ion-card-content>
     </ion-card>
   </ion-content>
+
+  <app-company-info></app-company-info>
 </ion-content>

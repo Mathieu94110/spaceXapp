@@ -1,0 +1,130 @@
+<ng-container *ngIf="companyInfo">
+  <ion-content>
+    <ion-title class="ion-text-center">Informations sur la société</ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-center">
+            <h3>Nom de la société</h3>
+            {{ companyInfo.name }}
+          </div>
+        </ion-col></ion-row
+      >
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-center">
+            <h3>Pdg</h3>
+            {{ companyInfo.ceo }}
+          </div>
+          <ion-col class="ion-text-center">
+            <div class="ion-text-center">
+              <h3>Fondateur</h3>
+              {{ companyInfo.founder }}
+            </div>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-end">
+            <h3>Directeur des opérations</h3>
+            {{ companyInfo.coo }}
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-center">
+            <h3>Directeur technique</h3>
+            {{ companyInfo.cto }}
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-wrap">
+            <h3>Directeur technique de la propulsion</h3>
+            {{ companyInfo.cto_propulsion }}
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <div class="ion-text-nowrap">
+            <h3>Effectifs</h3>
+            {{ companyInfo.employees }}
+          </div>
+        </ion-col>
+
+        <ion-col class="ion-text-center">
+          <div class="ion-text-nowrap">
+            <h3>Date de fondation</h3>
+            {{ companyInfo.founded }}
+          </div>
+        </ion-col>
+
+        <ion-col class="ion-text-center">
+          <div class="ion-text-nowrap">
+            <h3>Valorisation</h3>
+            {{ companyInfo.valuation }} $
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text color="secondary">
+            <h3>Résumé</h3>
+          </ion-text>
+          <p>{{ companyInfo.summary }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div class="ion-text-nowrap">
+          <h3>Adresse</h3>
+          {{ companyInfo.headquarters.address }}
+        </div>
+      </ion-col>
+
+      <ion-col class="ion-text-center">
+        <div class="ion-text-nowrap">
+          <h3>Ville</h3>
+          {{ companyInfo.headquarters.city }}
+        </div>
+      </ion-col>
+
+      <ion-col class="ion-text-center">
+        <div class="ion-text-nowrap">
+          <h3>État</h3>
+          {{ companyInfo.headquarters.state }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button size="medium" href="{{ companyInfo.links.twitter }}">
+            <ion-icon name="logo-flickr"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col
+          class="ion-text-center ion-justify-center"
+          href="{{ companyInfo.links.flickr }}"
+        >
+          <ion-button size="medium">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col
+          class="ion-text-center ion-justify-center"
+          href="{{ companyInfo.links.website }}"
+        >
+          <ion-button size="medium">
+            <ion-icon name="globe-outline"></ion-icon>
+          </ion-button>
+        </ion-col> </ion-row
+    ></ion-grid>
+  </ion-content>
+</ng-container>
