@@ -103,25 +103,28 @@
     </ion-row>
 
     <ion-grid>
-      <ion-row>
+      <ion-row *ngIf="companyInfo">
+        <ion-col>
+          <ion-avatar
+            class="horizontal-margin"
+            href="{{companyInfo.links.elon_twitter}"
+          >
+            <img src="../../../assets/icon/elon_musk_twitter.png" />
+          </ion-avatar>
+        </ion-col>
+
         <ion-col class="ion-text-center">
           <ion-button size="medium" href="{{ companyInfo.links.twitter }}">
             <ion-icon name="logo-flickr"></ion-icon>
           </ion-button>
         </ion-col>
-        <ion-col
-          class="ion-text-center ion-justify-center"
-          href="{{ companyInfo.links.flickr }}"
-        >
-          <ion-button size="medium">
+        <ion-col class="ion-text-center ion-justify-center">
+          <ion-button size="medium" href="{{ companyInfo.links.flickr }}">
             <ion-icon name="logo-twitter"></ion-icon>
           </ion-button>
         </ion-col>
-        <ion-col
-          class="ion-text-center ion-justify-center"
-          href="{{ companyInfo.links.website }}"
-        >
-          <ion-button size="medium">
+        <ion-col class="ion-text-center ion-justify-center">
+          <ion-button size="medium" href="{{ companyInfo.links.website }}">
             <ion-icon name="globe-outline"></ion-icon>
           </ion-button>
         </ion-col> </ion-row

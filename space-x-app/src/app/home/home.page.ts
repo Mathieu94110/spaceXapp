@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
 import { SpaceXApi } from '../models/types';
-import { Observable } from 'rxjs';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,7 +11,7 @@ export class HomePage implements OnInit {
   latestLaunches: SpaceXApi.ILaunchSchema | undefined;
   historyEvents: SpaceXApi.IHistoryEventSchema | undefined;
 
-  constructor(private homeService: HomeService) {}
+  constructor(private homeService: HomeService, private menu: MenuController) {}
 
   ngOnInit() {
     this.homeService.getLatestLaunches().subscribe((data) => {
@@ -145,4 +145,17 @@ export class HomePage implements OnInit {
       },
     },
   };
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
 }

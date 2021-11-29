@@ -19,4 +19,7 @@ export class HomeService {
   getAllHistoryEvents(): Observable<any>{
      return this.http.get(`${this.baseUrl}/v4/history`);
   }
+  getAllCompanyInfo(): Observable<any>{
+       return this.http.get(`${this.baseUrl}/v4/company`)
+  }
 }
