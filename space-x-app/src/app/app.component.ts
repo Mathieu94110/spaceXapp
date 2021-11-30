@@ -11,9 +11,9 @@ export class AppComponent {
 
   constructor(private menu: MenuController) {
     this.sideMenuList = [
-      { title: 'Capsules', icon: 'mail' },
-      { title: 'Cores', icon: 'mail' },
-      { title: 'Crew', icon: 'mail' },
+      { title: 'Capsules', icon: 'mail', path: '/capsules' },
+      { title: 'Cores', icon: 'mail', path: '/cores' },
+      { title: 'Crew', icon: 'mail', path: '/crew' },
       { title: 'Dragons', icon: 'mail' },
       { title: 'Landpads', icon: 'mail' },
       { title: 'Launches', icon: 'mail' },
