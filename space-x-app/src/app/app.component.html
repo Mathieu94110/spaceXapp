@@ -10,6 +10,10 @@
         <ion-item
           *ngFor="let item of sideMenuList"
           (click)="onMenuClick(item.title)"
+          [routerLink]="item.path"
+          routerDirection="root"
+          routerLinkActive="active-item"
+          [routerLinkActiveOptions]="{ exact: true }"
         >
           <ion-label>{{ item.title }}</ion-label>
           <ion-icon slot="start" [name]="item.icon"></ion-icon>

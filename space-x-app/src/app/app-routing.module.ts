@@ -12,6 +12,21 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'capsules',
+    loadChildren: () =>
+      import('./capsules/capsules.module').then((m) => m.CapsulesPageModule),
+  },
+  {
+    path: 'cores',
+    loadChildren: () =>
+      import('./cores/cores.module').then((m) => m.CoresPageModule),
+  },
+  {
+    path: 'crew',
+    loadChildren: () =>
+      import('./crew/crew.module').then((m) => m.CrewPageModule),
+  },
 ];
 
 @NgModule({
