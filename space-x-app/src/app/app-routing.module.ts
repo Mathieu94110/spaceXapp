@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+      import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: '',
@@ -15,17 +15,33 @@ const routes: Routes = [
   {
     path: 'capsules',
     loadChildren: () =>
-      import('./capsules/capsules.module').then((m) => m.CapsulesPageModule),
+      import('./pages/capsules/capsules.module').then(
+        (m) => m.CapsulesPageModule
+      ),
   },
   {
     path: 'cores',
     loadChildren: () =>
-      import('./cores/cores.module').then((m) => m.CoresPageModule),
+      import('./pages/cores/cores.module').then((m) => m.CoresPageModule),
   },
   {
     path: 'crew',
     loadChildren: () =>
-      import('./crew/crew.module').then((m) => m.CrewPageModule),
+      import('./pages/crew/crew.module').then((m) => m.CrewPageModule),
+  },
+  {
+    path: 'launches',
+    loadChildren: () =>
+      import('./pages/launches/launches.module').then(
+        (m) => m.LaunchesPageModule
+      ),
+  },
+  {
+    path: 'launches-details/:dataObj',
+    loadChildren: () =>
+      import('./pages/launches/launches-details/launches-details.module').then(
+        (m) => m.LaunchesDetailsPageModule
+      ),
   },
 ];
 

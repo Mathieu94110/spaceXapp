@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,EAAE,CAAA;EACE,WAAW,EAAE,GAAG;CACnB;;AAED,AAAA,kBAAkB,CAAA;EACd,MAAM,EAAE,IAAI;CACf;;AACD,MAAM,EAAE,SAAS,EAAE,KAAK;EAExB,AAAA,EAAE,CAAA;IACE,SAAS,EAAE,IAAI;GAClB",
-    "sources": [
-        "company-info.component.scss"
-    ],
-    "names": [],
-    "file": "company-info.component.css"
-}

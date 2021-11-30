@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from '../services/home.service';
-import { SpaceXApi } from '../models/types';
+import { HomeService } from '../../services/home.service';
+import { SpaceXApi } from '../../models/types';
 import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
