@@ -1,0 +1,14 @@
+h3 {
+  font-weight: 600;
+}
+
+.horizontal-margin {
+  margin: auto;
+}
+
+@media (max-width: 540px) {
+  h3 {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=company-info.component.css.map */
