@@ -16,4 +16,6 @@ export class CompanyInfoComponent implements OnInit {
       this.companyInfo = data
     });
   }
+
+  
 }

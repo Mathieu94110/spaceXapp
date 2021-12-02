@@ -37,7 +37,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'launches-details/:dataObj',
+    path: 'launches-details',
     loadChildren: () =>
       import('./pages/launches/launches-details/launches-details.module').then(
         (m) => m.LaunchesDetailsPageModule

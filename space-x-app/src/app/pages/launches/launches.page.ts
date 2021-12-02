@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SpaceXApi } from 'src/app/models/types';
 import { LaunchesService } from 'src/app/services/launches.service';
 import { Router } from '@angular/router';
+import { LaunchesNavParamService } from 'src/app/services/launches-nav-param.service';
 
 @Component({
   selector: 'app-launches',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class LaunchesPage implements OnInit {
   constructor(
     private launchesService: LaunchesService,
-    private router: Router
+    private router: Router,
+    private navParamService: LaunchesNavParamService
   ) {}
 
   allLaunches: SpaceXApi.ILaunchSchema[] | undefined;
@@ -20,12 +22,10 @@ export class LaunchesPage implements OnInit {
     this.launchesService.getAllLaunches().subscribe((launche) => {
       this.allLaunches = launche;
     });
-    setTimeout(() => {
-      console.log(this.allLaunches);
-    }, 2000);
   }
 
   pushLauncheDetails(params: any) {
-    this.router.navigate(['launches-details/' + params]);
+    this.navParamService.setNavData(params);
+    this.router.navigate(['launches-details']);
   }
 }

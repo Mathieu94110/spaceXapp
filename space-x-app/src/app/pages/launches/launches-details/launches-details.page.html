@@ -1,1 +1,104 @@
-<ion-content> launches-details </ion-content> {{data}}
+<ion-content slot="fixed" class="ion-padding">
+  <ion-toolbar class="toolbar-padding">
+    <ion-button (click)="goBack()" slot="start"> Précédent </ion-button>
+  </ion-toolbar>
+
+  <ion-card color="dark" class="launche-card">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{data.links.patch.small}}" />
+      </ion-avatar>
+      <ion-label class="item-keys">
+        <h1>{{data.name}}</h1>
+        <ion-item
+          ><ion-label class="item-keys">Date</ion-label> {{data.date_utc ?
+          data.date_utc : 'Pas de détails' }}</ion-item
+        >
+        <ion-item
+          ><ion-label class="item-keys">Vol n°</ion-label>{{data.flight_number ?
+          data.flight_number : 'Pas de détails'}}</ion-item
+        >
+      </ion-label>
+    </ion-item>
+    <div class="ion-text-center">
+      <img src="{{data.links.patch.large}}" alt="Image" class="large-img" />
+    </div>
+    <ion-card-header>
+      <ion-card-title class="item-keys">{{data.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label class="item-keys">Details</ion-label>
+          {{data.details ? data.details : 'Pas de détails concernant ce
+          lancement' }}
+        </ion-item>
+        <ng-container
+          *ngIf="data.failures[0];then failures else noFailures"
+        ></ng-container>
+
+        <ng-template #failures>
+          <ion-item-divider>
+            <ion-label color="danger" class="item-keys">
+              Précédent échec
+            </ion-label>
+          </ion-item-divider>
+
+          <ion-item
+            ><ion-label class="item-keys"> Détails</ion-label
+            >{{data.failures[0]?.reason ? data.failures[0].reason : 'Pas de
+            détails' }}</ion-item
+          >
+          <ion-item
+            ><ion-label class="item-keys">Altitude</ion-label
+            >{{data.failures[0].altitude ? data.failures[0].altitude : 'Pas de
+            détails'}}</ion-item
+          >
+          <ion-item
+            ><ion-label class="item-keys">Délai</ion-label
+            >{{data.failures[0].time ? data.failures[0].time : 'Pas de
+            détails'}}</ion-item
+          >
+        </ng-template>
+        <ng-template #noFailures>
+          <ion-item>
+            <ion-label color="success"> Aucun échecs précédents</ion-label>
+          </ion-item>
+        </ng-template>
+        <ion-item-group
+          style="display: flex; width: 100%; justify-content: space-evenly"
+        >
+          <ion-button
+            button
+            expand="full"
+            href="{{data.links.webcast}}"
+            target="_blank"
+          >
+            <ion-label
+              ><ion-icon name="videocam-outline"></ion-icon>
+            </ion-label>
+          </ion-button>
+          <ion-button
+            button
+            expand="full"
+            href="{{data.links.wikipedia}}"
+            target="_blank"
+          >
+            <ion-label><ion-icon name="book-outline"></ion-icon></ion-label>
+          </ion-button>
+
+          <ion-button
+            button
+            expand="full"
+            href="{{data.links.youtube}}"
+            target="_blank"
+          >
+            <ion-label><ion-icon name="logo-youtube"></ion-icon></ion-label>
+          </ion-button>
+        </ion-item-group>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-footer> </ion-footer>
+  </ion-card>
+</ion-content>
