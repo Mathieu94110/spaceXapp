@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { SpaceXApi } from '../../models/types';
 import { MenuController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomePage implements OnInit {
-  latestLaunches: SpaceXApi.ILaunchSchema | undefined;
-  historyEvents: SpaceXApi.IHistoryEventSchema | undefined;
+  latestLaunches$: SpaceXApi.ILaunchSchema;
+  historyEvents$: SpaceXApi.IHistoryEventSchema[];
 
   constructor(private homeService: HomeService, private menu: MenuController) {}
 
   ngOnInit() {
     this.homeService.getLatestLaunches().subscribe((data) => {
-      this.latestLaunches = data;
+      this.latestLaunches$ = data;
+      console.log(this.latestLaunches$);
     });
     this.homeService.getAllHistoryEvents().subscribe((data) => {
-      this.historyEvents = data;
+      this.historyEvents$ = data;
     });
   }
 

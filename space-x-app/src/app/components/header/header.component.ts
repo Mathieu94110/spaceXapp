@@ -7,7 +7,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string;
-  dropdown: boolean = true;
+  dropdown: boolean = false;
   @ViewChild('launchesbtn', { read: ElementRef }) launchesbtn: ElementRef;
   constructor() {}
 

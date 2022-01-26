@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { SpaceXApi } from './models/types';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  sideMenuList: Array<object>;
+  sideMenuList: SpaceXApi.IsideMenuList[];
 
   constructor(private menu: MenuController) {
     this.sideMenuList = [

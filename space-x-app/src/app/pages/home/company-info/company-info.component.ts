@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from 'src/app/services/home.service';
 import { SpaceXApi } from 'src/app/models/types';
+import { HomeService } from 'src/app/services/home.service';
+
 @Component({
   selector: 'app-company-info',
   templateUrl: './company-info.component.html',
@@ -8,14 +9,11 @@ import { SpaceXApi } from 'src/app/models/types';
 })
 export class CompanyInfoComponent implements OnInit {
   constructor(private homeService: HomeService) {}
-  companyInfo: SpaceXApi.ICompanyInfoSchema | undefined;
-  
+  companyInfo: SpaceXApi.ICompanyInfoSchema;
+
   ngOnInit() {
     this.homeService.getAllCompanyInfo().subscribe((data) => {
-      console.log(data);
-      this.companyInfo = data
+      this.companyInfo = data;
     });
   }
-
-  
 }

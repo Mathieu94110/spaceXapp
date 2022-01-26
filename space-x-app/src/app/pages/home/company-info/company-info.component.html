@@ -1,25 +1,43 @@
 <ng-container *ngIf="companyInfo">
   <ion-content>
-    <ion-title class="ion-text-center">Informations sur la société</ion-title>
+    <ion-title class="ion-text-center">
+      <ion-text color="light"
+        ><h2>Informations sur la société</h2></ion-text
+      ></ion-title
+    >
     <ion-grid>
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-center">
-            <h3>Nom de la société</h3>
-            {{ companyInfo.name }}
+            <ion-text color="secondary">
+              <h3>Nom de la société</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{ companyInfo.name }}</ion-text>
+            </p>
           </div>
         </ion-col></ion-row
       >
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-center">
-            <h3>Pdg</h3>
-            {{ companyInfo.ceo }}
+            <ion-text color="secondary">
+              <h3>Pdg</h3>
+            </ion-text>
+            <p>
+              <ion-text color="light">{{ companyInfo.ceo }}</ion-text>
+            </p>
           </div>
           <ion-col class="ion-text-center">
             <div class="ion-text-center">
-              <h3>Fondateur</h3>
-              {{ companyInfo.founder }}
+              <ion-text color="secondary">
+                <h3>Fondateur</h3>
+              </ion-text>
+
+              <p>
+                <ion-text color="light">{{ companyInfo.founder }}</ion-text>
+              </p>
             </div>
           </ion-col>
         </ion-col>
@@ -28,43 +46,74 @@
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-center">
-            <h3>Directeur des opérations</h3>
-            {{ companyInfo.coo }}
+            <ion-text color="secondary">
+              <h3>Directeur des opérations</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{ companyInfo.coo }}</ion-text>
+            </p>
           </div>
         </ion-col>
         <ion-col class="ion-text-center">
           <div class="ion-text-center">
-            <h3>Directeur technique</h3>
-            {{ companyInfo.cto }}
+            <ion-text color="secondary">
+              <h3>Directeur technique</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{ companyInfo.cto }}</ion-text>
+            </p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-wrap">
-            <h3>Directeur technique de la propulsion</h3>
-            {{ companyInfo.cto_propulsion }}
+            <ion-text color="secondary">
+              <h3>Directeur technique de la propulsion</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{
+                companyInfo.cto_propulsion
+              }}</ion-text>
+            </p>
           </div>
         </ion-col>
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>Effectifs</h3>
-            {{ companyInfo.employees }}
+            <ion-text color="secondary">
+              <h3>Effectifs</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{ companyInfo.employees }}</ion-text>
+            </p>
           </div>
         </ion-col></ion-row
       >
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>Date de fondation</h3>
-            {{ companyInfo.founded }}
+            <ion-text color="secondary">
+              <h3>Date de fondation</h3>
+            </ion-text>
+            <p>
+              <ion-text color="light">{{ companyInfo.founded }}</ion-text>
+            </p>
           </div>
         </ion-col>
 
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>Valorisation</h3>
-            {{ companyInfo.valuation }} $
+            <ion-text color="secondary">
+              <h3>Valorisation</h3>
+            </ion-text>
+
+            <p>
+              <ion-text color="light">{{ companyInfo.valuation }} $</ion-text>
+            </p>
           </div>
         </ion-col>
       </ion-row>
@@ -74,29 +123,46 @@
           <ion-text color="secondary">
             <h3>Résumé</h3>
           </ion-text>
-          <p>{{ companyInfo.summary }}</p>
+
+          <p>
+            <ion-text color="light">{{ companyInfo.summary }}</ion-text>
+          </p>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>Adresse</h3>
-            {{ companyInfo.headquarters.address }}
+            <ion-text color="secondary"> <h3>Adresse</h3></ion-text>
+
+            <p>
+              <ion-text color="light">{{
+                companyInfo.headquarters.address
+              }}</ion-text>
+            </p>
           </div>
         </ion-col>
 
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>Ville</h3>
-            {{ companyInfo.headquarters.city }}
+            <ion-text color="secondary"> <h3>Ville</h3></ion-text>
+            <p color="light"></p>
+            <p>
+              <ion-text color="light">{{
+                companyInfo.headquarters.city
+              }}</ion-text>
+            </p>
           </div>
         </ion-col>
 
         <ion-col class="ion-text-center">
           <div class="ion-text-nowrap">
-            <h3>État</h3>
-            {{ companyInfo.headquarters.state }}
+            <ion-text color="secondary"> <h3>État</h3></ion-text>
+            <p>
+              <ion-text color="light">{{
+                companyInfo.headquarters.state
+              }}</ion-text>
+            </p>
           </div>
         </ion-col>
       </ion-row>
@@ -108,7 +174,7 @@
             href="{{companyInfo.links.elon_twitter}"
           >
             <img
-              src="../../../assets/icon/elon_musk_twitter.png"
+              src="assets/icon/elon_musk_twitter.png"
               class="elon-musk-img"
             />
           </ion-avatar>

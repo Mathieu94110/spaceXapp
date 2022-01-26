@@ -4,9 +4,10 @@
     }
     .header{
     display: flex;
-    background: #fff;
+ background: var(--ion-color-primary);
     padding-left: 40px;
     padding-right: 40px;
+    
 }
 
 }
@@ -25,14 +26,14 @@
 }
 
 .dropdown {
-    width: 136px;
+    width: 156.45px;
     height: 150px;
-    background:#fff;
     position: absolute;
-    top:40px;
+    top:58px;
 left:87px;
-z-index: 1;
+
 ion-item:hover{
     --ion-item-color: var(--ion-color-primary)
 }
 }
+

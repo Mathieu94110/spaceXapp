@@ -9,14 +9,14 @@ import { SpaceXApi } from 'src/app/models/types';
   styleUrls: ['./launches-details.page.scss'],
 })
 export class LaunchesDetailsPage {
-  data: SpaceXApi.ILaunchSchema | undefined;
+  launcheDetails$: SpaceXApi.ILaunchSchema;
 
   constructor(
     public route: ActivatedRoute,
     private navParamService: LaunchesNavParamService,
     private router: Router
   ) {
-    this.data = this.navParamService.getNavData();
+    this.launcheDetails$ = this.navParamService.getNavData();
   }
 
   goBack() {

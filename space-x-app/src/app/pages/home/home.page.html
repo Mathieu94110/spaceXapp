@@ -1,79 +1,88 @@
 <ion-content>
-  <ion-header [translucent]="true" lines="none">
-    <ion-title class="ion-text-center ion-padding">
-      Space X en image
-    </ion-title>
-  </ion-header>
-  <ng-container *ngIf="historyEvents">
-    <ion-slides [options]="slideOpts" class="ion-margin-top">
-      <ion-slide *ngFor="let event of historyEvents">
-        <ion-card class="history-events-cards">
-          <ion-card-header>
-            <ion-card-subtitle class="history-subtitle"
-              ><span class="items-key">Le</span>
-              <span class="items-value">
-                {{event.event_date_utc}}</span
-              ></ion-card-subtitle
-            >
-            <ion-card-title class="history-title">
-              <span class="items-value"> {{event.title}}</span></ion-card-title
-            >
-          </ion-card-header>
-
-          <ion-card-content class="history-content">
-            <span class="items-value"
-              >{{event.details.length > 100 ? event.details.slice( 0,
-              55).concat(" ...") : event.details }}</span
-            >
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  </ng-container>
-
-  <ion-header [translucent]="true" lines="none">
-    <ion-title class="ion-text-center ion-padding">
-      Dernier lancement
-    </ion-title>
-  </ion-header>
-  <ng-container *ngIf="latestLaunches" class="latest-launch-container">
-    <ion-grid>
-      <ion-row>
-        <ion-col size-xs="12" size-sm="8" size-l="6" offset-sm="2" offset-l="3">
-          <ion-card class="cards">
-            <div class="ion-text-center ion-padding">
-              <img
-                [src]="latestLaunches.links.patch.small"
-                class="ion-cards-img"
-              />
-            </div>
+  <div>
+    <ion-header [translucent]="true" lines="none">
+      <ion-title class="ion-text-center ion-padding" color="light">
+        <h2>Historique</h2>
+      </ion-title>
+    </ion-header>
+    <ng-container *ngIf="historyEvents$ as historyEvents">
+      <ion-slides [options]="slideOpts" class="ion-margin-top">
+        <ion-slide *ngFor="let event of historyEvents">
+          <ion-card class="history-events-cards" color="light">
+            <img src="assets/icon/space-x-logo.png" class="historyEventsImg" />
             <ion-card-header>
-              <ion-card-subtitle
-                ><span class="items-key">N°:</span>
-                <span class="items-value"
-                  >{{latestLaunches.flight_number}}</span
-                ></ion-card-subtitle
+              <ion-card-subtitle class="history-subtitle"
+                ><span class="items-key">Le</span>
+                <span> {{event.event_date_utc}}</span></ion-card-subtitle
               >
-              <ion-card-title>
-                <span class="items-value"
-                  >{{latestLaunches.name}}</span
-                ></ion-card-title
+              <ion-card-title class="history-title">
+                <span> {{event.title}}</span></ion-card-title
               >
             </ion-card-header>
 
-            <ion-card-content>
-              <span class="items-key">Détails: </span>
-              <span class="items-value"
-                >{{latestLaunches.details.length > 100 ?
-                latestLaunches.details.slice( 0, 55).concat(" ...") :
-                latestLaunches.details }}</span
+            <ion-card-content class="history-content">
+              <span
+                >{{event.details.length > 100 ? event.details.slice( 0, 55) :
+                event.details }}</span
               >
             </ion-card-content>
           </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ng-container>
+        </ion-slide>
+      </ion-slides>
+    </ng-container>
 
-  <app-company-info></app-company-info>
+    <ion-header [translucent]="true" lines="none">
+      <ion-title class="ion-text-center ion-padding" color="light">
+        <h2>Dernier lancement</h2>
+      </ion-title>
+    </ion-header>
+    <ng-container
+      *ngIf="latestLaunches$ as latestLaunches"
+      class="latest-launch-container"
+    >
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            size-xs="12"
+            size-sm="8"
+            size-l="6"
+            offset-sm="2"
+            offset-l="3"
+          >
+            <ion-card class="cards" color="light">
+              <div class="ion-text-center ion-padding">
+                <img
+                  [src]="latestLaunches.links.patch.small"
+                  class="ion-cards-img"
+                />
+              </div>
+              <ion-card-header>
+                <ion-card-subtitle
+                  ><span class="items-key">N°: </span>
+                  <span
+                    >{{latestLaunches.flight_number}}</span
+                  ></ion-card-subtitle
+                >
+                <ion-card-title>
+                  <span>{{latestLaunches.name}}</span></ion-card-title
+                >
+              </ion-card-header>
+
+              <ion-card-content>
+                <p>
+                  {{latestLaunches.details ? "DÉtails" : "Date de lancement" }}:
+                </p>
+                <p>
+                  {{latestLaunches.details ? latestLaunches.details :
+                  latestLaunches.date_utc }}
+                </p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-container>
+
+    <app-company-info></app-company-info>
+  </div>
 </ion-content>

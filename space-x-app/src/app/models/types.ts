@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 export namespace SpaceXApi {
+  export interface IsideMenuList {
+    title: string;
+    icon: string;
+    path?: string;
+  }
+
   export interface ICapsuleSchema {
     serial: {
       type: string;
@@ -18,19 +25,19 @@ export namespace SpaceXApi {
     dragon: {
       type: 'UUID';
     };
-    reuse_count: {
+    reuseCount: {
       type: number;
       default: 0;
     };
-    water_landings: {
+    waterLandings: {
       type: number;
       default: 0;
     };
-    land_landings: {
+    landLandings: {
       type: number;
       default: 0;
     };
-    last_update: {
+    lastUpdate: {
       type: string;
       default: null;
     };
@@ -57,10 +64,10 @@ export namespace SpaceXApi {
     vehicles: {
       type: number;
     };
-    launch_sites: {
+    launchSites: {
       type: number;
     };
-    test_sites: {
+    testSites: {
       type: number;
     };
     ceo: {
@@ -99,7 +106,7 @@ export namespace SpaceXApi {
       twitter: {
         type: string;
       };
-      elon_twitter: {
+      elonTwitter: {
         type: string;
       };
     };
@@ -123,27 +130,27 @@ export namespace SpaceXApi {
       enum: ['active', 'inactive', 'unknown', 'expended', 'lost', 'retired'];
       required: true;
     };
-    reuse_count: {
+    reuseCount: {
       type: number;
       default: 0;
     };
-    rtls_attempts: {
+    rtlsAttempts: {
       type: number;
       default: 0;
     };
-    rtls_landings: {
+    rtlsLandings: {
       type: number;
       default: 0;
     };
-    asds_attempts: {
+    asdsAttempts: {
       type: number;
       default: 0;
     };
-    asds_landings: {
+    asdsLandings: {
       type: number;
       default: 0;
     };
-    last_update: {
+    lastUpdate: {
       type: string;
       default: null;
     };
@@ -194,10 +201,10 @@ export namespace SpaceXApi {
       required: true;
     };
     active: {
-      type: Boolean;
+      type: boolean;
       required: true;
     };
-    crew_capacity: {
+    crewCapacity: {
       type: number;
       required: true;
     };
@@ -296,7 +303,7 @@ export namespace SpaceXApi {
           type: number;
         };
         unpressurized_cargo: {
-          type: Boolean;
+          type: boolean;
         };
       };
     };
@@ -426,11 +433,11 @@ export namespace SpaceXApi {
       default: null;
     };
     tdb: {
-      type: Boolean;
+      type: boolean;
       default: false;
     };
     net: {
-      type: Boolean;
+      type: boolean;
       default: false;
     };
     window: {
@@ -442,7 +449,7 @@ export namespace SpaceXApi {
       default: null;
     };
     success: {
-      type: Boolean;
+      type: boolean;
       default: null;
     };
     failures: [
@@ -459,24 +466,21 @@ export namespace SpaceXApi {
       }
     ];
     upcoming: {
-      type: Boolean;
+      type: boolean;
       required: true;
     };
-    details: {
-      type: string;
-      default: null;
-    };
+    details: ILatestLaunches[];
     fairings: {
       reused: {
-        type: Boolean;
+        type: boolean;
         default: null;
       };
       recovery_attempt: {
-        type: Boolean;
+        type: boolean;
         default: null;
       };
       recovered: {
-        type: Boolean;
+        type: boolean;
         default: null;
       };
       ships: ['UUID'];
@@ -511,23 +515,23 @@ export namespace SpaceXApi {
           default: null;
         };
         gridfins: {
-          type: Boolean;
+          type: boolean;
           default: null;
         };
         legs: {
-          type: Boolean;
+          type: boolean;
           default: null;
         };
         reused: {
-          type: Boolean;
+          type: boolean;
           default: null;
         };
         landing_attempt: {
-          type: Boolean;
+          type: boolean;
           default: null;
         };
         landing_success: {
-          type: Boolean;
+          type: boolean;
           default: null;
         };
         landing_type: {
@@ -595,9 +599,14 @@ export namespace SpaceXApi {
       };
     };
     auto_update: {
-      type: Boolean;
+      type: boolean;
       default: true;
     };
+  }
+
+  interface ILatestLaunches {
+    type: string;
+    default: null;
   }
 
   export interface ILaunchpadSchema {
@@ -664,7 +673,7 @@ export namespace SpaceXApi {
       default: null;
     };
     reused: {
-      type: Boolean;
+      type: boolean;
       default: false;
     };
     launch: {
@@ -769,11 +778,11 @@ export namespace SpaceXApi {
         default: null;
       };
       water_landing: {
-        type: Boolean;
+        type: boolean;
         default: null;
       };
       land_landing: {
-        type: Boolean;
+        type: boolean;
         default: null;
       };
     };
@@ -864,7 +873,7 @@ export namespace SpaceXApi {
       type: string;
     };
     active: {
-      type: Boolean;
+      type: boolean;
     };
     stages: {
       type: number;
@@ -916,7 +925,7 @@ export namespace SpaceXApi {
     };
     first_stage: {
       reusable: {
-        type: Boolean;
+        type: boolean;
       };
       engines: {
         type: number;
@@ -946,7 +955,7 @@ export namespace SpaceXApi {
     };
     second_stage: {
       reusable: {
-        type: Boolean;
+        type: boolean;
       };
       engines: {
         type: number;
@@ -1078,7 +1087,7 @@ export namespace SpaceXApi {
     };
     roles: [string];
     active: {
-      type: Boolean;
+      type: boolean;
       required: true;
     };
     imo: {
@@ -1358,10 +1367,7 @@ export namespace SpaceXApi {
       type: number;
       default: null;
     };
-    details: {
-      type: string;
-      default: null;
-    };
+    details: IHistoryEventsDetails[];
     links: {
       article: {
         type: string;
@@ -1369,4 +1375,9 @@ export namespace SpaceXApi {
       };
     };
   }
+}
+
+interface IHistoryEventsDetails {
+  type: string;
+  default: null;
 }

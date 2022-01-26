@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-list *ngIf="allLaunches">
+  <ion-list *ngIf="allLaunches$ as allLaunches">
     <ion-item
       *ngFor="let launch of allLaunches"
       (click)="pushLauncheDetails(launch)"
@@ -9,9 +9,7 @@
       </ion-thumbnail>
       <ion-label>{{launch.name}}</ion-label>
       <ion-label>{{launch.date_utc}}</ion-label>
-      <ion-label
-        >Réussite: {{launch.success === true ? "Oui" : "Non"}}</ion-label
-      >
+      <ion-label>Réussite: {{launch.success ? "Oui" : "Non"}}</ion-label>
 
       <ion-icon name="chevron-forward-outline"></ion-icon>
     </ion-item>

@@ -1,5 +1,5 @@
 <ion-header class="mobile-header">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button menu="first"> </ion-menu-button>
     </ion-buttons>
@@ -12,12 +12,12 @@
 
 <ion-row class="header ion-align-items-center">
   <ion-col size="2">
-    <img src="../../../assets/icon/space-x-logo.png" width="50px" />
+    <img src="assets/icon/space-x-logo.png" width="50px" />
   </ion-col>
   <ion-col size="10" class="ion-text-left">
     <ion-button
       fill="clear"
-      color="dark"
+      color="light"
       routerLink="/"
       routerDirection="root"
       routerLinkActive="active-item"
@@ -31,7 +31,7 @@
       (mouseenter)="dropdown = true"
       (mouseleave)="hideDropdown($event)"
       fill="clear"
-      color="dark"
+      color="light"
       routerLink="/products"
       routerDirection="root"
       routerLinkActive="active-item"
@@ -51,24 +51,6 @@
       <ion-item
         button
         (click)="dropdown = false"
-        routerLink="/launches/:id"
-        [queryParams]="{ category: 'id' }"
-        lines="none"
-      >
-        Lancement
-      </ion-item>
-      <ion-item
-        button
-        (click)="dropdown = false"
-        routerLink="/launches/query"
-        [queryParams]="{ category: 'query' }"
-        lines="none"
-      >
-        Plusieurs
-      </ion-item>
-      <ion-item
-        button
-        (click)="dropdown = false"
         routerLink="/launches"
         [queryParams]="{ category: 'all' }"
         lines="none"
@@ -79,7 +61,7 @@
 
     <ion-button
       fill="clear"
-      color="dark"
+      color="light"
       routerLink="/capsules"
       routerDirection="root"
       routerLinkActive="active-item"
@@ -89,7 +71,7 @@
     </ion-button>
     <ion-button
       fill="clear"
-      color="dark"
+      color="light"
       routerLink="/cores"
       routerDirection="root"
       routerLinkActive="active-item"
@@ -99,7 +81,7 @@
     </ion-button>
     <ion-button
       fill="clear"
-      color="dark"
+      color="light"
       routerLink="/crew"
       routerDirection="root"
       routerLinkActive="active-item"

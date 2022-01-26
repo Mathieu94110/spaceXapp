@@ -3,61 +3,69 @@
     <ion-button (click)="goBack()" slot="start"> Précédent </ion-button>
   </ion-toolbar>
 
-  <ion-card color="dark" class="launche-card">
+  <ion-card
+    color="dark"
+    class="launche-card"
+    *ngIf="launcheDetails$ as launcheDetails"
+  >
     <ion-item>
       <ion-avatar slot="start">
-        <img src="{{data.links.patch.small}}" />
+        <img src="{{launcheDetails.links.patch.small}}" />
       </ion-avatar>
       <ion-label class="item-keys">
-        <h1>{{data.name}}</h1>
+        <h1>{{launcheDetails.name}}</h1>
         <ion-item
-          ><ion-label class="item-keys">Date</ion-label> {{data.date_utc ?
-          data.date_utc : 'Pas de détails' }}</ion-item
+          ><ion-label class="item-keys">Date</ion-label>
+          {{launcheDetails.date_utc ? launcheDetails.date_utc : 'Pas de détails'
+          }}</ion-item
         >
         <ion-item
-          ><ion-label class="item-keys">Vol n°</ion-label>{{data.flight_number ?
-          data.flight_number : 'Pas de détails'}}</ion-item
+          ><ion-label class="item-keys">Vol n°</ion-label
+          >{{launcheDetails.flight_number ? launcheDetails.flight_number : 'Pas
+          de détails'}}</ion-item
         >
       </ion-label>
     </ion-item>
     <div class="ion-text-center">
-      <img src="{{data.links.patch.large}}" alt="Image" class="large-img" />
+      <img
+        src="{{launcheDetails.links.patch.large}}"
+        alt="Image"
+        class="large-img"
+      />
     </div>
     <ion-card-header>
-      <ion-card-title class="item-keys">{{data.name}}</ion-card-title>
+      <ion-card-title class="item-keys">{{launcheDetails.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
+      <ion-list class="ion-no-padding">
         <ion-item>
           <ion-label class="item-keys">Details</ion-label>
-          {{data.details ? data.details : 'Pas de détails concernant ce
-          lancement' }}
+          {{launcheDetails.details ? launcheDetails.details : 'Pas de détails
+          concernant ce lancement' }}
         </ion-item>
         <ng-container
-          *ngIf="data.failures[0];then failures else noFailures"
+          *ngIf="launcheDetails.failures[0];then failures else noFailures"
         ></ng-container>
 
         <ng-template #failures>
           <ion-item-divider>
-            <ion-label color="danger" class="item-keys">
-              Précédent échec
-            </ion-label>
+            <ion-label color="danger" class="item-keys"> Échec </ion-label>
           </ion-item-divider>
 
           <ion-item
             ><ion-label class="item-keys"> Détails</ion-label
-            >{{data.failures[0]?.reason ? data.failures[0].reason : 'Pas de
-            détails' }}</ion-item
+            >{{launcheDetails.failures[0]?.reason ?
+            launcheDetails.failures[0].reason : 'Pas de détails' }}</ion-item
           >
           <ion-item
             ><ion-label class="item-keys">Altitude</ion-label
-            >{{data.failures[0].altitude ? data.failures[0].altitude : 'Pas de
-            détails'}}</ion-item
+            >{{launcheDetails.failures[0].altitude ?
+            launcheDetails.failures[0].altitude : 'Pas de détails'}}</ion-item
           >
           <ion-item
             ><ion-label class="item-keys">Délai</ion-label
-            >{{data.failures[0].time ? data.failures[0].time : 'Pas de
-            détails'}}</ion-item
+            >{{launcheDetails.failures[0].time ? launcheDetails.failures[0].time
+            : 'Pas de détails'}}</ion-item
           >
         </ng-template>
         <ng-template #noFailures>
@@ -66,12 +74,13 @@
           </ion-item>
         </ng-template>
         <ion-item-group
+          color="light"
           style="display: flex; width: 100%; justify-content: space-evenly"
         >
           <ion-button
             button
             expand="full"
-            href="{{data.links.webcast}}"
+            href="{{launcheDetails.links.webcast}}"
             target="_blank"
           >
             <ion-label
@@ -81,7 +90,7 @@
           <ion-button
             button
             expand="full"
-            href="{{data.links.wikipedia}}"
+            href="{{launcheDetails.links.wikipedia}}"
             target="_blank"
           >
             <ion-label><ion-icon name="book-outline"></ion-icon></ion-label>
@@ -90,7 +99,7 @@
           <ion-button
             button
             expand="full"
-            href="{{data.links.youtube}}"
+            href="{{launcheDetails.links.youtube_id}}"
             target="_blank"
           >
             <ion-label><ion-icon name="logo-youtube"></ion-icon></ion-label>

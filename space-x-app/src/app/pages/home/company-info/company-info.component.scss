@@ -5,13 +5,23 @@ h3{
 .horizontal-margin{
     margin: auto;
 }
+.elon-musk-img{
+    width: 50px;
+    height: 50px;
+}
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
 @media (max-width: 540px) {
     
 h3{
     font-size: 14px;
 }
-}
-.elon-musk-img{
-    width: 50px;
-    height: 50px;
 }

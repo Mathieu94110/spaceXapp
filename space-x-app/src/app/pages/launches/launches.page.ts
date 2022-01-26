@@ -16,11 +16,11 @@ export class LaunchesPage implements OnInit {
     private navParamService: LaunchesNavParamService
   ) {}
 
-  allLaunches: SpaceXApi.ILaunchSchema[] | undefined;
+  allLaunches$: SpaceXApi.ILaunchSchema[] ;
 
   ngOnInit() {
     this.launchesService.getAllLaunches().subscribe((launche) => {
-      this.allLaunches = launche;
+      this.allLaunches$ = launche;
     });
   }
 
